@@ -1,6 +1,6 @@
 from operator import truediv
 from tkinter import filedialog
-from view.UI import UI
+from view.ui import UI
 
 class CLI(UI):
 

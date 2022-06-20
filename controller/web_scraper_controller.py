@@ -1,5 +1,5 @@
-from model.WebScraper import WebScraper
-from view.UI import UI
+from model.web_scraper import WebScraper
+from view.ui import UI
 
 class WebScraperController:
     def __init__(self, webScraper: WebScraper, view: UI):

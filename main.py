@@ -1,6 +1,6 @@
-from model.WebScraper import WebScraper
-from view.CLI import CLI
-from controller.WebScraperController import WebScraperController
+from model.web_scraper import WebScraper
+from view.cli import CLI
+from controller.web_scraper_controller import WebScraperController
 
 class Main:
     def __init__(self):
