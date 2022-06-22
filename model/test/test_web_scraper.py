@@ -11,13 +11,7 @@ OUTPUT_FILE = "./output.txt"
 
 def test_find_keyword_static():
     webScraper = WebScraper()
-    assert WebScraper._find_keyword(webScraper, EXAMPLE_STATIC, "Python")
-
-def test_find_keyword_dynamic():
-    assert False
-
-def test_find_keyword_subdomains():
-    assert False
+    assert WebScraper._find_keyword(webScraper, EXAMPLE_THREE, "Library")
 
 def test_add_to_output():
     assert False

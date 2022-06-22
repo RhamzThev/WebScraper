@@ -21,21 +21,22 @@ class CLI(UI):
 
         return keyword
 
-    def get_output_file(self):
+    def get_output_folder(self):
         print("===== OUTPUT FILE =====")
-        input("Find output file (Press 'ENTER' to open file dialog) :: ")
-        filename = filedialog.askopenfilename()
+        input("Find folder to store output file (Press 'ENTER' to open folder dialog) :: ")
 
-        print(f"Filename: { filename }")
+        path = filedialog.askdirectory()
+
+        print(f"Path: { path }")
         print()
 
-        return filename
+        return path
 
-    def get_summary(self, input_file, keyword, output_file):
+    def get_summary(self, input_file, keyword, output_folder):
         print("===== SUMMARY =====")
         print(f"Input File: {input_file}")
         print(f"Keyword: {keyword}")
-        print(f"Output File: {output_file}")
+        print(f"Output Folder: {output_folder}")
 
         confirmation = input("Confirm (Press 'Y' to confirm) :: ")
         print()

@@ -9,7 +9,7 @@ class WebScraperController:
     def start(self):
         input_file = self.view.get_input_file()
         keyword = self.view.get_keyword()
-        output_file = self.view.get_output_file()
+        output_folder = self.view.get_output_folder()
 
-        if self.view.get_summary(input_file, keyword, output_file):
-            self.webScraper.scrape(input_file, keyword, output_file)
+        if self.view.get_summary(input_file, keyword, output_folder):
+            self.webScraper.scrape(input_file, keyword, output_folder)

@@ -10,7 +10,7 @@ class UI(ABC):
     def get_keyword(self): pass
     
     @abstractmethod
-    def get_output_file(self): pass
+    def get_output_folder(self): pass
 
     @abstractmethod
     def get_summary(self, input, keyword, output): pass
