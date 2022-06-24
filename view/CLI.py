@@ -7,6 +7,7 @@ class CLI(UI):
     def get_input_file(self):
         print("===== INPUT FILE =====")
         input("Find input file (Press 'ENTER' to open file dialog) :: ")
+        
         filename = filedialog.askopenfilename()
 
         print(f"Filename: { filename }")

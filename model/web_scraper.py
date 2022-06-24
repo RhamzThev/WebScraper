@@ -8,15 +8,15 @@ class WebScraper:
         soup = BeautifulSoup(page.content, "html.parser")
         text = soup.get_text()
 
-        return keyword in text
+        return keyword.lower() in text.lower()
 
     def _find_dirs(self, url: str) -> list[str]:
         page = requests.get(url)
         soup = BeautifulSoup(page.content, "html.parser")
 
-        subdirs = {url + '/' + node.get('href') 
-        for node in soup.find_all('a') 
-        if node.get('href').endswith("")}
+        subdirs = {url + node.get('href') 
+        for node in soup.find_all('a', href=True)
+        if not node.get('href').startswith("http")}
 
         subdirs.add(url)
 
@@ -24,6 +24,7 @@ class WebScraper:
 
     def _add_to_output(self, url: str, output_folder: str) -> None :
         with open(output_folder + "/output.txt", "a") as file:
+            print(f"*** ADDED { url } TO THE OUTPUT FILE. ***")
             file.write(url + "\n")
 
     def _find(self, url: str, keyword: str, output_folder: str) -> None:
@@ -31,7 +32,7 @@ class WebScraper:
         dirs = self._find_dirs(url)
 
         for dir in dirs:
-
+            print(f"Looking in { dir }...")
             # IF KEYWORD SPOTTED
             if self._find_keyword(dir, keyword):
 
@@ -53,10 +54,6 @@ class WebScraper:
             lines = file.readlines()
 
             for line in lines:
-                print(f"Looking in { line }...")
+                line = line.strip()
                 # IF THERE'S A KEYWORD WITHIN THAT WEBSITE
-                self._find(line.strip(), keyword, output_folder)
-
-        print("=======================")
-        print("IT ALL WORKS!")
-        print("=======================")
+                self._find(line, keyword, output_folder)
