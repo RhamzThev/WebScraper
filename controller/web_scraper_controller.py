@@ -11,5 +11,6 @@ class WebScraperController:
         keyword = self.view.get_keyword()
         output_folder = self.view.get_output_folder()
 
-        if self.view.get_summary(input_file, keyword, output_folder):
+        if self.view.get_pre_summary(input_file, keyword, output_folder):
             self.webScraper.scrape(input_file, keyword, output_folder)
+            self.view.get_post_summary(input_file, keyword, output_folder)

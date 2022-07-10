@@ -33,8 +33,8 @@ class CLI(UI):
 
         return path
 
-    def get_summary(self, input_file, keyword, output_folder):
-        print("===== SUMMARY =====")
+    def get_pre_summary(self, input_file, keyword, output_folder):
+        print("===== PRE-RUN SUMMARY =====")
         print(f"Input File: {input_file}")
         print(f"Keyword: {keyword}")
         print(f"Output Folder: {output_folder}")
@@ -45,3 +45,16 @@ class CLI(UI):
         if confirmation.upper() == 'Y':
             return True
         return False
+
+    def get_post_summary(self, input_file, keyword, output_folder):
+        print("===== POST-RUN SUMMARY =====")
+        # NUMBER OF WEBSITES FOUND
+        try:
+            with open(input_file) as file:
+                num_of_sites = len(file.readlines())
+                print(f"{num_of_sites} website(s) found with \"{keyword}\" keyword.")
+            print(f"Path to output file: {output_folder}")
+            input("Press 'ENTER' to exit program :: ")
+        except FileNotFoundError:
+            pass
+        

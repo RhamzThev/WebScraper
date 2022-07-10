@@ -12,5 +12,8 @@ class Main:
         self.controller.start()
 
 if __name__ == "__main__": 
-    main = Main()
-    main.main()
+    try:
+        main = Main()
+        main.main()
+    except KeyboardInterrupt:
+        print("Program has been stopped.")

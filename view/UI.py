@@ -13,4 +13,7 @@ class UI(ABC):
     def get_output_folder(self): pass
 
     @abstractmethod
-    def get_summary(self, input, keyword, output): pass
+    def get_pre_summary(self, input, keyword, output): pass
+
+    @abstractmethod
+    def get_post_summary(self, input, keyword, output): pass
