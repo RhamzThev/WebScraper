@@ -1,5 +1,7 @@
 # WebScraper
 
+[![Archived](https://img.shields.io/badge/status-archived-lightgrey.svg)](https://github.com/RhamzThev/WebScraper)
+
 ## Overview
 WebScraper is a Python-based application designed to scrape websites for specific keywords. The application allows users to input a list of URLs, specify a keyword, and generate a report of which URLs contain the keyword. The output is saved to a specified directory.
 
